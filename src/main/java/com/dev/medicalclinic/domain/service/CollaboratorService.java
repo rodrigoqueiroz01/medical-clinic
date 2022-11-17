@@ -66,7 +66,7 @@ public class CollaboratorService {
     }
 
     public String delete(String name) {
-        Collaborator collaborator = new Collaborator();
+        var collaborator = new Collaborator();
 
         try {
             collaborator = collaboratorRepository.findByName(name);
