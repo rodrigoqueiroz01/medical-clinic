@@ -3,8 +3,11 @@ package com.dev.medicalclinic.api.http.controller;
 import com.dev.medicalclinic.api.http.dto.request.CollaboratorRequest;
 import com.dev.medicalclinic.api.http.dto.response.CollaboratorResponse;
 import com.dev.medicalclinic.api.http.mapper.CollaboratorMapper;
+import com.dev.medicalclinic.domain.model.Collaborator;
 import com.dev.medicalclinic.domain.service.CollaboratorService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +31,10 @@ public class CollaboratorController {
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CollaboratorResponse>> findAll() {
-        return ResponseEntity.ok().body(CollaboratorMapper.toResponseList(collaboratorService.findAll()));
+    public ResponseEntity<Page<Collaborator>> findAll(Pageable pageable,
+                                                      @RequestParam(value = "name", required = false) String name,
+                                                      @RequestParam(value = "office", required = false) String office) {
+        return ResponseEntity.ok().body(collaboratorService.findAll(pageable, name, office));
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
