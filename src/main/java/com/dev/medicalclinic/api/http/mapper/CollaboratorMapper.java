@@ -4,10 +4,16 @@ import com.dev.medicalclinic.api.http.dto.request.CollaboratorRequest;
 import com.dev.medicalclinic.api.http.dto.response.CollaboratorResponse;
 import com.dev.medicalclinic.domain.model.Collaborator;
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static java.util.Objects.isNull;
+
+/**
+ * @author rodrigoqueiroz
+ */
 
 @Component
 public class CollaboratorMapper {

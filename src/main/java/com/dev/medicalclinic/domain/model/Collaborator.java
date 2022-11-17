@@ -8,6 +8,10 @@ import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * @author rodrigoqueiroz
+ */
+
 @Data
 @Builder
 @AllArgsConstructor

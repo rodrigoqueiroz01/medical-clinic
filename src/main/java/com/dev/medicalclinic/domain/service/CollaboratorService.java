@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author rodrigoqueiroz
+ */
+
 @Service
 @AllArgsConstructor
 public class CollaboratorService {

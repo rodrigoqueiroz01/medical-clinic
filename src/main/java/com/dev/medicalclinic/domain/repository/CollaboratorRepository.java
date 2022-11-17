@@ -4,6 +4,10 @@ import com.dev.medicalclinic.domain.model.Collaborator;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
+/**
+ * @author rodrigoqueiroz
+ */
+
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long>, JpaSpecificationExecutor {
 
     Collaborator findByName(String name);

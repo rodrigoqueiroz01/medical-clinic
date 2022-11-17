@@ -3,10 +3,15 @@ package com.dev.medicalclinic.api.http.dto.request;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+/**
+ * @author rodrigoqueiroz
+ */
 
 @Getter
 @Setter
