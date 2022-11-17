@@ -36,3 +36,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+## Config files ##
+src/main/resources/application.yaml
