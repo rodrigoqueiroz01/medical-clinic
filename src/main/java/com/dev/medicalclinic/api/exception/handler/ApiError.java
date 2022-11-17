@@ -1,4 +1,40 @@
 package com.dev.medicalclinic.api.exception.handler;
 
-public class ApiError {
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Builder;
+import lombok.Getter;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
+
+/**
+ * @author rodrigoqueiroz
+ */
+
+@Getter
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ApiError implements Serializable {
+
+    @Serial
+    public static final long serialVersionUID = 1L;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private final LocalDateTime timestamp = LocalDateTime.now();
+
+    private Integer status;
+    private String title;
+    private String detail;
+    private List<Field> fields;
+
+    @Getter
+    @Builder
+    public static class Field {
+        private String name;
+        private String message;
+    }
+
 }
