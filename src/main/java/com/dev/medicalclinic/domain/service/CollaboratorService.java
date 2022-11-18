@@ -1,7 +1,7 @@
 package com.dev.medicalclinic.domain.service;
 
 import com.dev.medicalclinic.api.exception.DataAlreadyRegisteredException;
-import com.dev.medicalclinic.api.exception.DataNotFoundException;
+import com.dev.medicalclinic.api.exception.EntityNotFoundException;
 import com.dev.medicalclinic.domain.model.Collaborator;
 import com.dev.medicalclinic.domain.repository.CollaboratorRepository;
 import lombok.AllArgsConstructor;
@@ -53,11 +53,11 @@ public class CollaboratorService {
 
     public Collaborator findById(Long id) {
         return collaboratorRepository.findById(id)
-                .orElseThrow(() -> new DataNotFoundException("Colaborador não encontrado!"));
+                .orElseThrow(() -> new EntityNotFoundException("Colaborador não encontrado!"));
     }
 
     public Collaborator update(Collaborator collaborator, Long id) {
-        collaboratorRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Colaborador não encontrado!"));
+        collaboratorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Colaborador não encontrado!"));
         collaborator.setId(id);
 
         if (!Objects.isNull(collaboratorRepository.findByName(collaborator.getName())) ||

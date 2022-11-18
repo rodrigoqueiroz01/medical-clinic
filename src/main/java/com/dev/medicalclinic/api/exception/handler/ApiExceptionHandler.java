@@ -1,7 +1,7 @@
 package com.dev.medicalclinic.api.exception.handler;
 
 import com.dev.medicalclinic.api.exception.DataAlreadyRegisteredException;
-import com.dev.medicalclinic.api.exception.DataNotFoundException;
+import com.dev.medicalclinic.api.exception.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -73,8 +73,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return super.handleExceptionInternal(ex, apiError, headers, status, request);
     }
 
-    @ExceptionHandler(DataNotFoundException.class)
-    protected ResponseEntity<Object> handleDataNotFound(DataNotFoundException ex, WebRequest request) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    protected ResponseEntity<Object> handleDataNotFound(EntityNotFoundException ex, WebRequest request) {
         var status = HttpStatus.NOT_FOUND;
 
         var apiError = ApiError
@@ -209,7 +209,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Object> handleRuntimeException(RuntimeException ex, WebRequest request) {
+    public ResponseEntity<Object> handleRuntime(RuntimeException ex, WebRequest request) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
 
         var apiError = ApiError
