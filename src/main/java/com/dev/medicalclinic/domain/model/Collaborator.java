@@ -34,6 +34,9 @@ public class Collaborator implements Serializable {
 
     private Integer age;
 
+    @Embedded
+    private Address address;
+
     @Column(unique = true)
     private String rg;
 
@@ -45,8 +48,6 @@ public class Collaborator implements Serializable {
     private Integer numberPis;
 
     private String office;
-
-    private String nationality;
 
     private String birthDate;
 
