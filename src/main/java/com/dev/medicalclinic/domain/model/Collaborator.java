@@ -16,7 +16,8 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "collaborator")
+@Entity
+@Table(name = "collaborator", schema = "public")
 public class Collaborator implements Serializable {
 
     @Serial
@@ -39,7 +40,6 @@ public class Collaborator implements Serializable {
     @Column(unique = true)
     private String cpf;
 
-    @Column(name = "work_card_number")
     private String workCardNumber;
 
     private Integer numberPis;
@@ -48,24 +48,18 @@ public class Collaborator implements Serializable {
 
     private String nationality;
 
-    @Column(name = "birth_date")
     private String birthDate;
 
-    @Column(name = "name_father")
     private String nameFather;
 
-    @Column(name = "mother_name")
     private String motherName;
 
-    @Column(name = "personal_phone")
     private String personalPhone;
 
-    @Column(name = "corporate_phone")
     private String corporatePhone;
 
     private String schooling;
 
-    @Column(name = "marital_status")
     private String maritalStatus;
 
     private String email;
