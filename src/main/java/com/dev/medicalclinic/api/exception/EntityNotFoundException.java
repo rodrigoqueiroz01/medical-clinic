@@ -2,6 +2,10 @@ package com.dev.medicalclinic.api.exception;
 
 import java.io.Serial;
 
+/**
+ * @author rodrigoqueiroz
+ */
+
 public class EntityNotFoundException extends RuntimeException {
 
     @Serial

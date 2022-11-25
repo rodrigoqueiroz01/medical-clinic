@@ -1,0 +1,22 @@
+package com.dev.medicalclinic.domain.entity.enums;
+
+/**
+ * @author rodrigoqueiroz
+ */
+
+public enum SchoolingType {
+
+    FUNDAMENTAL_INCOMPLETO,
+    FUNDAMENTAL_COMPLETO,
+    MEDIO_INCOMPLETO,
+    MEDIO_COMPLETO,
+    SUPERIOR_INCOMPLETO,
+    SUPERIOR_COMPLETO,
+    POS_GRADUACAO_INCOMPLETO,
+    POS_GRADUACAO_COMPLETO,
+    MESTRADO_INCOMPLETO,
+    MESTRADO_COMPLETO,
+    DOUTORADO_INCOMPLETO,
+    DOUTORADO_COMPLETO;
+
+}

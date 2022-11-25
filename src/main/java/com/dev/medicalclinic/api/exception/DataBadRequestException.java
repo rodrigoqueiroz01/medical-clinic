@@ -6,12 +6,12 @@ import java.io.Serial;
  * @author rodrigoqueiroz
  */
 
-public class DataAlreadyRegisteredException extends RuntimeException {
+public class DataBadRequestException extends RuntimeException {
 
     @Serial
     public static final long serialVersionUID = 1L;
 
-    public DataAlreadyRegisteredException(String message) {
+    public DataBadRequestException(String message) {
         super(message);
     }
 }
