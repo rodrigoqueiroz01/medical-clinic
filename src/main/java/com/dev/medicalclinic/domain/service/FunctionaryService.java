@@ -62,11 +62,11 @@ public class FunctionaryService {
 
     public Functionary findById(UUID id) {
         return functionaryRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Colaborador não encontrado!"));
+                .orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado!"));
     }
 
     public Functionary update(Functionary functionary, UUID id) {
-        functionaryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Colaborador não encontrado!"));
+        functionaryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado!"));
         functionary.setId(id);
 
         if (!Objects.isNull(functionaryRepository.findByName(functionary.getName())) ||
@@ -84,7 +84,7 @@ public class FunctionaryService {
         try {
             collaborator = functionaryRepository.findByName(name);
         } catch (Exception e) {
-            throw new DataAlreadyRegisteredException("Conflito: Funcionário já existe na base de dados.");
+            throw new EntityNotFoundException("Funcionário não encontrado!");
         }
 
         functionaryRepository.delete(collaborator);
