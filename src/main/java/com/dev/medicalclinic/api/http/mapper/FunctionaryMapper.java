@@ -3,6 +3,8 @@ package com.dev.medicalclinic.api.http.mapper;
 import com.dev.medicalclinic.api.http.dto.request.FunctionaryRequest;
 import com.dev.medicalclinic.api.http.dto.response.FunctionaryResponse;
 import com.dev.medicalclinic.domain.entity.Functionary;
+import com.dev.medicalclinic.domain.entity.model.AddressModel;
+import com.dev.medicalclinic.domain.entity.model.CollaborativeDataModel;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,30 @@ public class FunctionaryMapper {
                 .schooling(functionaryRequest.getSchooling())
                 .maritalStatus(functionaryRequest.getMaritalStatus())
                 .email(functionaryRequest.getEmail())
-                .address(functionaryRequest.getAddress())
-                .collaborativeData(functionaryRequest.getCollaborativeData())
+                .address(AddressModel
+                        .builder()
+                        .cep(functionaryRequest.getCep())
+                        .street(functionaryRequest.getStreet())
+                        .number(functionaryRequest.getNumber())
+                        .complement(functionaryRequest.getComplement())
+                        .district(functionaryRequest.getDistrict())
+                        .city(functionaryRequest.getCity())
+                        .uf(functionaryRequest.getUf())
+                        .nationality(functionaryRequest.getNationality())
+                        .build())
+                .collaborativeData(CollaborativeDataModel
+                        .builder()
+                        .office(functionaryRequest.getOffice())
+                        .salary(functionaryRequest.getSalary())
+                        .mealTicket(functionaryRequest.getMealTicket())
+                        .transportationVouchers(functionaryRequest.getTransportationVouchers())
+                        .workJob(functionaryRequest.getWorkJob())
+                        .admissionDate(functionaryRequest.getAdmissionDate())
+                        .holidayStartDate(functionaryRequest.getHolidayStartDate())
+                        .holidayEndDate(functionaryRequest.getHolidayEndDate())
+                        .dismissalDate(functionaryRequest.getDismissalDate())
+                        .build())
+                .registrationDate(functionaryRequest.getRegistrationDate())
                 .build();
     }
 
@@ -54,8 +78,29 @@ public class FunctionaryMapper {
                 .schooling(functionary.getSchooling())
                 .maritalStatus(functionary.getMaritalStatus())
                 .email(functionary.getEmail())
-                .address(functionary.getAddress())
-                .collaborativeData(functionary.getCollaborativeData())
+                .address(AddressModel
+                        .builder()
+                        .cep(functionary.getAddress().getCep())
+                        .street(functionary.getAddress().getStreet())
+                        .number(functionary.getAddress().getNumber())
+                        .complement(functionary.getAddress().getComplement())
+                        .district(functionary.getAddress().getDistrict())
+                        .city(functionary.getAddress().getCity())
+                        .uf(functionary.getAddress().getUf())
+                        .nationality(functionary.getAddress().getNationality())
+                        .build())
+                .collaborativeData(CollaborativeDataModel
+                        .builder()
+                        .office(functionary.getCollaborativeData().getOffice())
+                        .salary(functionary.getCollaborativeData().getSalary())
+                        .mealTicket(functionary.getCollaborativeData().getMealTicket())
+                        .transportationVouchers(functionary.getCollaborativeData().getTransportationVouchers())
+                        .workJob(functionary.getCollaborativeData().getWorkJob())
+                        .admissionDate(functionary.getCollaborativeData().getAdmissionDate())
+                        .holidayStartDate(functionary.getCollaborativeData().getHolidayStartDate())
+                        .holidayEndDate(functionary.getCollaborativeData().getHolidayEndDate())
+                        .dismissalDate(functionary.getCollaborativeData().getDismissalDate())
+                        .build())
                 .registrationDate(functionary.getRegistrationDate())
                 .build();
     }

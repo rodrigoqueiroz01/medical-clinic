@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -22,6 +22,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class FunctionaryResponse {
 
+    // Functionary
     private UUID id;
     private String name;
     private String rg;
@@ -38,6 +39,29 @@ public class FunctionaryResponse {
     private String email;
     private AddressModel address;
     private CollaborativeDataModel collaborativeData;
-    private Date registrationDate;
+
+    // AddressModel
+    private String cep;
+    private String street;
+    private Integer number;
+    private String complement;
+    private String district;
+    private String city;
+    private String uf;
+    private String nationality;
+
+    // CollaborativeDataModel
+    private String office;
+    private Double salary;
+    private Double mealTicket;
+    private Double transportationVouchers;
+    private String workJob;
+    private String admissionDate;
+    private String holidayStartDate;
+    private String holidayEndDate;
+    private String dismissalDate;
+
+    // Functionary
+    private LocalDate registrationDate;
 
 }

@@ -3,8 +3,6 @@ package com.dev.medicalclinic.api.http.dto.request;
 import com.dev.medicalclinic.domain.entity.enums.GenreType;
 import com.dev.medicalclinic.domain.entity.enums.MaritalStatus;
 import com.dev.medicalclinic.domain.entity.enums.SchoolingType;
-import com.dev.medicalclinic.domain.entity.model.AddressModel;
-import com.dev.medicalclinic.domain.entity.model.CollaborativeDataModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -12,6 +10,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 /**
  * @author rodrigoqueiroz
@@ -21,6 +20,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class FunctionaryRequest {
 
+    // Functionary
     @Length(max = 150, message = "Respeite o limite máximo de 150 caracteres.")
     @NotBlank(message = "Este campo é obrigatório.")
     private String name;
@@ -69,8 +69,68 @@ public class FunctionaryRequest {
     @NotBlank(message = "Este campo é obrigatório.")
     private String email;
 
-    private AddressModel address;
+    // AddressModel
+    @Length(max = 9, message = "Respeite o limite máximo de 9 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String cep;
 
-    private CollaborativeDataModel collaborativeData;
+    @Length(max = 255, message = "Respeite o limite máximo de 255 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String street;
+
+    @NotNull(message = "Este campo é obrigatório.")
+    private Integer number;
+
+    @Length(max = 255, message = "Respeite o limite máximo de 255 caracteres.")
+    private String complement;
+
+    @Length(max = 150, message = "Respeite o limite máximo de 255 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String district;
+
+    @Length(max = 200, message = "Respeite o limite máximo de 255 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String city;
+
+    @Length(max = 2, message = "Respeite o limite máximo de 2 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String uf;
+
+    @Length(max = 150, message = "Respeite o limite máximo de 255 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String nationality;
+
+    // CollaborativeDataModel
+    @Length(max = 150, message = "Respeite o limite máximo de 255 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String office;
+
+    @NotBlank(message = "Este campo é obrigatório.")
+    private Double salary;
+
+    @NotBlank(message = "Este campo é obrigatório.")
+    private Double mealTicket;
+
+    @NotBlank(message = "Este campo é obrigatório.")
+    private Double transportationVouchers;
+
+    @Length(max = 7, message = "Respeite o limite máximo de 7 caracteres.")
+    @NotBlank(message = "Este campo é obrigatório.")
+    private String workJob;
+
+    @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
+    private String admissionDate;
+
+    @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
+    private String holidayStartDate;
+
+    @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
+    private String holidayEndDate;
+
+    @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
+    private String dismissalDate;
+
+    // Functionary
+    private LocalDate registrationDate;
 
 }

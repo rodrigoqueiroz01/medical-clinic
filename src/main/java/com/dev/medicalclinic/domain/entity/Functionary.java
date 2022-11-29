@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -82,6 +82,6 @@ public class Functionary implements Serializable {
     @Embedded
     private CollaborativeDataModel collaborativeData;
 
-    private Date registrationDate;
+    private LocalDate registrationDate;
 
 }
