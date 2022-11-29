@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 
 /**
  * @author rodrigoqueiroz
@@ -19,42 +18,42 @@ import java.time.LocalDate;
 @Embeddable
 public class CollaborativeDataModel {
 
-    @Length(max = 255, message = "Respeite o limite máximo de 255 caracteres.")
+    @Length(max = 150, message = "Respeite o limite máximo de 255 caracteres.")
     @NotBlank(message = "Este campo é obrigatório.")
-    @Column(name = "collaborative_office")
+    @Column(name = "collaborative_office", nullable = false, length = 150)
     private String office;
 
     @NotBlank(message = "Este campo é obrigatório.")
-    @Column(name = "collaborative_salary")
+    @Column(name = "collaborative_salary", nullable = false)
     private Double salary;
 
     @NotBlank(message = "Este campo é obrigatório.")
-    @Column(name = "collaborative_meal_ticket")
+    @Column(name = "collaborative_meal_ticket", nullable = false)
     private Double mealTicket;
 
     @NotBlank(message = "Este campo é obrigatório.")
-    @Column(name = "collaborative_transportation_vouchers")
+    @Column(name = "collaborative_transportation_vouchers", nullable = false)
     private Double transportationVouchers;
 
     @Length(max = 7, message = "Respeite o limite máximo de 7 caracteres.")
     @NotBlank(message = "Este campo é obrigatório.")
-    @Column(name = "collaborative_work_job")
+    @Column(name = "collaborative_work_job", nullable = false, length = 7)
     private String workJob;
 
     @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
-    @Column(name = "collaborative_admission_date")
+    @Column(name = "collaborative_admission_date", length = 10)
     private String admissionDate;
 
     @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
-    @Column(name = "collaborative_holiday_start_date")
+    @Column(name = "collaborative_holiday_start_date", length = 10)
     private String holidayStartDate;
 
     @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
-    @Column(name = "collaborative_holiday_end_date")
+    @Column(name = "collaborative_holiday_end_date", length = 10)
     private String holidayEndDate;
 
     @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
-    @Column(name = "collaborative_dismissal_date")
+    @Column(name = "collaborative_dismissal_date", length = 10)
     private String dismissalDate;
 
 }

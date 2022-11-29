@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class FunctionaryRequest {
 
-    @Length(max = 255, message = "Respeite o limite máximo de 255 caracteres.")
+    @Length(max = 150, message = "Respeite o limite máximo de 150 caracteres.")
     @NotBlank(message = "Este campo é obrigatório.")
     private String name;
 
@@ -41,10 +41,10 @@ public class FunctionaryRequest {
     @NotNull(message = "Este campo é obrigatório.")
     private Integer age;
 
-    @Length(max = 255, message = "Respeite o limite máximo de 255 caracteres.")
+    @Length(max = 150, message = "Respeite o limite máximo de 150 caracteres.")
     private String nameFather;
 
-    @Length(max = 255, message = "Respeite o limite máximo de 255 caracteres.")
+    @Length(max = 150, message = "Respeite o limite máximo de 150 caracteres.")
     private String motherName;
 
     @Length(min = 11, max = 15, message = "Respeite o limite mínimo de 11, e máximo de 15 caracteres.")
@@ -65,7 +65,7 @@ public class FunctionaryRequest {
     private MaritalStatus maritalStatus;
 
     @Email(message = "Informe um email válido. Ex.: exemplo@email.com")
-    @Length(min = 10, max = 255, message = "Respeite o limite mínimo de 10, e máximo de 100 caracteres.")
+    @Length(min = 10, max = 150, message = "Respeite o limite mínimo de 10, e máximo de 150 caracteres.")
     @NotBlank(message = "Este campo é obrigatório.")
     private String email;
 
