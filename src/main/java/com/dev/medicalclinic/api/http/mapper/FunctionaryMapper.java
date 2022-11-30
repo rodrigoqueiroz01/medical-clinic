@@ -8,8 +8,8 @@ import com.dev.medicalclinic.domain.entity.model.CollaborativeDataModel;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
-import static java.util.Objects.isNull;
 
 /**
  * @author rodrigoqueiroz
@@ -106,7 +106,7 @@ public class FunctionaryMapper {
     }
 
     public static List<FunctionaryResponse> toResponseList(List<Functionary> functionaryList) {
-        if (isNull(functionaryList) || functionaryList.isEmpty()) {
+        if (Objects.isNull(functionaryList) || functionaryList.isEmpty()) {
             return new ArrayList<>();
         } else {
             return functionaryList.stream().map(FunctionaryMapper::toResponse).collect(Collectors.toList());

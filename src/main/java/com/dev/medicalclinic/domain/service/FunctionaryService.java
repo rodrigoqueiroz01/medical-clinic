@@ -75,6 +75,12 @@ public class FunctionaryService {
             throw new DataAlreadyRegisteredException("Conflito: Funcionário já existe na base de dados.");
         }
 
+        if (functionary.getSchooling().equals(SchoolingType.FUNDAMENTAL_INCOMPLETO) ||
+                functionary.getSchooling().equals(SchoolingType.FUNDAMENTAL_COMPLETO) ||
+                functionary.getSchooling().equals(SchoolingType.MEDIO_INCOMPLETO)) {
+            throw new DataBadRequestException("Deve ter ensino médio completo.");
+        }
+
         return functionaryRepository.save(functionary);
     }
 
