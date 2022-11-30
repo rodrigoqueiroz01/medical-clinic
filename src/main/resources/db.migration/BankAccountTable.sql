@@ -12,3 +12,12 @@ CREATE TABLE public.bank_account (
 
     CONSTRAINT pk_bank_account PRIMARY KEY (id)
 );
+
+ALTER TABLE public.bank_account
+    ADD CONSTRAINT uc_bank_account_account_number UNIQUE (account_number);
+
+ALTER TABLE public.bank_account
+    ADD CONSTRAINT uc_bank_account_pix_key UNIQUE (pix_key);
+
+ALTER TABLE public.bank_account
+    ADD CONSTRAINT uc_bank_account_titular_name UNIQUE (titular_name);
