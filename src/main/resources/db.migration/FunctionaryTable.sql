@@ -14,7 +14,7 @@ CREATE TABLE public.functionary
     schooling                             VARCHAR(255)     NOT NULL,
     marital_status                        VARCHAR(255)     NOT NULL,
     email                                 VARCHAR(150)     NOT NULL,
-    bank_account_id                       UUID,
+    bank_account_id                       UUID             NOT NULL,
     registration_date                     date,
     address_cep                           VARCHAR(9)       NOT NULL,
     address_street                        VARCHAR(255)     NOT NULL,
@@ -35,6 +35,9 @@ CREATE TABLE public.functionary
     collaborative_dismissal_date          VARCHAR(10),
     CONSTRAINT pk_functionary PRIMARY KEY (id)
 );
+
+ALTER TABLE public.functionary
+    ADD CONSTRAINT uc_functionary_bank_account UNIQUE (bank_account_id);
 
 ALTER TABLE public.functionary
     ADD CONSTRAINT uc_functionary_cpf UNIQUE (cpf);

@@ -83,7 +83,7 @@ public class Functionary implements Serializable {
     private CollaborativeDataModel collaborativeData;
 
     @OneToOne
-    @JoinColumn(name = "bank_account_id")
+    @JoinColumn(name = "bank_account_id", unique = true, nullable = false)
     private BankAccount bankAccount;
 
     private LocalDate registrationDate;
