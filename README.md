@@ -1,6 +1,6 @@
 # API - Medical Clinic
 
-## ⚡ Tecnologias utilizadas
+## ⚡ Tecnologias e Ferramentas utilizadas
 ### • Java 19
 ### • Spring Boot
 ### • PostgreSQL
@@ -9,3 +9,4 @@
 ### • Lombok
 ### • Postman
 ### • Swagger UI
+### • IntelliJ IDEA
