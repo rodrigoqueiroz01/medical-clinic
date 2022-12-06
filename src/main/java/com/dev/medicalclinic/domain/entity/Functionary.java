@@ -82,6 +82,10 @@ public class Functionary implements Serializable {
     @Embedded
     private CollaborativeDataModel collaborativeData;
 
+    @OneToOne
+    @JoinColumn(name = "bank_account_id")
+    private BankAccount bankAccount;
+
     private LocalDate registrationDate;
 
 }

@@ -11,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.UUID;
 
 /**
  * @author rodrigoqueiroz
@@ -129,6 +130,9 @@ public class FunctionaryRequest {
 
     @Length(min = 10, max = 10, message = "Respeite o limite máximo de 10 caracteres.")
     private String dismissalDate;
+
+    @NotBlank(message = "Este campo é obrigatório.")
+    private UUID bankAccountId;
 
     // Functionary
     private LocalDate registrationDate;

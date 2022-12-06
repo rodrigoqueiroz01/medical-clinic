@@ -1,4 +1,5 @@
-CREATE TABLE public.functionary (
+CREATE TABLE public.functionary
+(
     id                                    UUID             NOT NULL,
     name                                  VARCHAR(150)     NOT NULL,
     rg                                    VARCHAR(11)      NOT NULL,
@@ -13,6 +14,7 @@ CREATE TABLE public.functionary (
     schooling                             VARCHAR(255)     NOT NULL,
     marital_status                        VARCHAR(255)     NOT NULL,
     email                                 VARCHAR(150)     NOT NULL,
+    bank_account_id                       UUID,
     registration_date                     date,
     address_cep                           VARCHAR(9)       NOT NULL,
     address_street                        VARCHAR(255)     NOT NULL,
@@ -31,7 +33,6 @@ CREATE TABLE public.functionary (
     collaborative_holiday_start_date      VARCHAR(10),
     collaborative_holiday_end_date        VARCHAR(10),
     collaborative_dismissal_date          VARCHAR(10),
-
     CONSTRAINT pk_functionary PRIMARY KEY (id)
 );
 
@@ -43,3 +44,6 @@ ALTER TABLE public.functionary
 
 ALTER TABLE public.functionary
     ADD CONSTRAINT uc_functionary_rg UNIQUE (rg);
+
+ALTER TABLE public.functionary
+    ADD CONSTRAINT FK_FUNCTIONARY_ON_BANK_ACCOUNT FOREIGN KEY (bank_account_id) REFERENCES public.bank_account (id);

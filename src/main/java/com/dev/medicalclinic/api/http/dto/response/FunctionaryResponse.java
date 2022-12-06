@@ -60,6 +60,7 @@ public class FunctionaryResponse {
     private String holidayStartDate;
     private String holidayEndDate;
     private String dismissalDate;
+    private BankAccountResponse bankAccountResponse;
 
     // Functionary
     private LocalDate registrationDate;

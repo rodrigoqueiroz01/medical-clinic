@@ -2,6 +2,7 @@ package com.dev.medicalclinic.api.http.mapper;
 
 import com.dev.medicalclinic.api.http.dto.request.FunctionaryRequest;
 import com.dev.medicalclinic.api.http.dto.response.FunctionaryResponse;
+import com.dev.medicalclinic.domain.entity.BankAccount;
 import com.dev.medicalclinic.domain.entity.Functionary;
 import com.dev.medicalclinic.domain.entity.model.AddressModel;
 import com.dev.medicalclinic.domain.entity.model.CollaborativeDataModel;
@@ -57,6 +58,7 @@ public class FunctionaryMapper {
                         .holidayEndDate(functionaryRequest.getHolidayEndDate())
                         .dismissalDate(functionaryRequest.getDismissalDate())
                         .build())
+                .bankAccount(BankAccount.builder().id(functionaryRequest.getBankAccountId()).build())
                 .registrationDate(functionaryRequest.getRegistrationDate())
                 .build();
     }
@@ -101,6 +103,7 @@ public class FunctionaryMapper {
                         .holidayEndDate(functionary.getCollaborativeData().getHolidayEndDate())
                         .dismissalDate(functionary.getCollaborativeData().getDismissalDate())
                         .build())
+                .bankAccountResponse(BankAccountMapper.toResponse(functionary.getBankAccount()))
                 .registrationDate(functionary.getRegistrationDate())
                 .build();
     }
