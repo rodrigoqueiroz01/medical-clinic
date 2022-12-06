@@ -7,6 +7,5 @@
 ### • HeidiSQL
 ### • JPA
 ### • Lombok
-### • Postman
 ### • Swagger UI
 ### • IntelliJ IDEA
