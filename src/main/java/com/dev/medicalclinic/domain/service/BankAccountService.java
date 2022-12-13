@@ -9,14 +9,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 @Service
 @AllArgsConstructor
 public class BankAccountService {
 
+    private Logger log = Logger.getLogger(BankAccountService.class.getName());
+
     private final BankAccountRepository bankAccountRepository;
 
     public BankAccount save(BankAccount bankAccount) {
+        log.info("Registrando uma nova conta bancária.");
+
         if (!Objects.isNull(bankAccountRepository.findByTitularName(bankAccount.getTitularName())) ||
                 !Objects.isNull(bankAccountRepository.findByAccountNumber(bankAccount.getAccountNumber())) ||
                 !Objects.isNull(bankAccountRepository.findByPixKey(bankAccount.getPixKey()))) {
@@ -27,15 +32,21 @@ public class BankAccountService {
     }
 
     public List<BankAccount> findAll() {
+        log.info("Encontrando todas as contas bancárias.");
+
         return bankAccountRepository.findAll();
     }
 
     public BankAccount findById(UUID id) {
+        log.info("Encontrando a conta bancária pelo uuid registrado.");
+
         return bankAccountRepository
                 .findById(id).orElseThrow(() -> new EntityNotFoundException("Conta bancária não encontrado com esse ID!"));
     }
 
     public BankAccount update(BankAccount bankAccount, UUID id) {
+        log.info("Atualizando uma conta bancária.");
+
         bankAccountRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Conta bancária não encontrado com esse ID!"));
         bankAccount.setId(id);
 
@@ -49,6 +60,8 @@ public class BankAccountService {
     }
 
     public UUID delete(UUID id) {
+        log.info("Excluindo uma conta bancária.");
+
         BankAccount bankAccount = bankAccountRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Conta bancária não encontrado com esse ID!"));
         bankAccountRepository.delete(bankAccount);

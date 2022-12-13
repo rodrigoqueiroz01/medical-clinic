@@ -7,18 +7,25 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 @Service
 @AllArgsConstructor
 public class OpeningHoursService {
 
+    private Logger log = Logger.getLogger(OpeningHoursService.class.getName());
+
     private final OpeningHoursRepository openingHoursRepository;
 
     public OpeningHours save(OpeningHours openingHours) {
+        log.info("Salvando o horário de funcionamento da clínica.");
+
         return openingHoursRepository.save(openingHours);
     }
 
     public OpeningHours update(OpeningHours openingHours, UUID id) {
+        log.info("Atualizando o horário de funcionamento da clínica.");
+
         openingHoursRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Clínica não encontrada na base de dados."));
         openingHours.setId(id);
 
@@ -26,6 +33,8 @@ public class OpeningHoursService {
     }
 
     public List<OpeningHours> findClinicHours() {
+        log.info("Consultando o horário de funcionamento da clínica.");
+
         return openingHoursRepository.findAll();
     }
 

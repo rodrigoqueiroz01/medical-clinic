@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 /**
  * @author rodrigoqueiroz
@@ -24,9 +25,13 @@ import java.util.UUID;
 @AllArgsConstructor
 public class FunctionaryService {
 
+    private Logger log = Logger.getLogger(FunctionaryService.class.getName());
+
     private final FunctionaryRepository functionaryRepository;
 
     public Functionary save(Functionary functionary) {
+        log.info("Criando um novo funcionário.");
+
         if (!Objects.isNull(functionaryRepository.findByName(functionary.getName())) ||
                 !Objects.isNull(functionaryRepository.findByCpf(functionary.getCpf())) ||
                 !Objects.isNull(functionaryRepository.findByRg(functionary.getRg()))) {
@@ -43,6 +48,8 @@ public class FunctionaryService {
     }
 
     public Page<Functionary> findAll(Pageable pageable, String name, String office) {
+        log.info("Encontrando os funcionários pelos filtros 'name' e 'office'.");
+
         return this.functionaryRepository.findAll((root, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
@@ -61,11 +68,15 @@ public class FunctionaryService {
     }
 
     public Functionary findById(UUID id) {
+        log.info("Encontrando o funcionário pelo uuid registrado.");
+
         return functionaryRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado!"));
     }
 
     public Functionary update(Functionary functionary, UUID id) {
+        log.info("Atualizando um funcionário.");
+
         functionaryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado!"));
         functionary.setId(id);
 
@@ -85,6 +96,8 @@ public class FunctionaryService {
     }
 
     public String delete(String name) {
+        log.info("Excluindo um funcionário.");
+
         var collaborator = new Functionary();
 
         try {
