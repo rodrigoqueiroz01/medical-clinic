@@ -12,10 +12,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
-@RequestMapping("/opening-hours")
+@RequestMapping("/opening-hours/v1")
 @AllArgsConstructor
 @Validated
 public class OpeningHoursController {
@@ -32,7 +31,7 @@ public class OpeningHoursController {
     public ResponseEntity<OpeningHoursResponse> update(@Valid @RequestBody OpeningHoursRequest openingHoursRequest,
                                                        @PathVariable String id) {
         return ResponseEntity.ok().body(OpeningHoursMapper.toResponse(openingHoursService.update(
-                OpeningHoursMapper.toModel(openingHoursRequest), UUID.fromString(id))));
+                OpeningHoursMapper.toModel(openingHoursRequest), Long.valueOf(id))));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)

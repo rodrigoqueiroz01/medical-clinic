@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class BankAccountResponse {
 
-    private UUID id;
+    private Long id;
     private String titularName;
     private Integer paydayOne;
     private Integer paydayTwo;

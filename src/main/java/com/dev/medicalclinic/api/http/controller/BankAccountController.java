@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/bank-account")
+@RequestMapping("/bank-account/v1")
 @AllArgsConstructor
 @Validated
 public class BankAccountController {
@@ -35,18 +35,18 @@ public class BankAccountController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BankAccountResponse> findById(@PathVariable String id) {
-        return ResponseEntity.ok().body(BankAccountMapper.toResponse(bankAccountService.findById(UUID.fromString(id))));
+        return ResponseEntity.ok().body(BankAccountMapper.toResponse(bankAccountService.findById(Long.valueOf(id))));
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BankAccountResponse> update(@Valid @RequestBody BankAccountRequest bankAccountRequest, @PathVariable String id) {
         return ResponseEntity.ok().body(BankAccountMapper.toResponse(bankAccountService.update(
-                BankAccountMapper.toModel(bankAccountRequest), UUID.fromString(id))));
+                BankAccountMapper.toModel(bankAccountRequest), Long.valueOf(id))));
     }
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> delete(@PathVariable String id) {
-        String code = String.valueOf(bankAccountService.delete(UUID.fromString(id)));
+        String code = String.valueOf(bankAccountService.delete(Long.valueOf(id)));
 
         return ResponseEntity.ok().body("Conta bancária (cód. de registro: " + code + ") removida da base de dados.");
     }

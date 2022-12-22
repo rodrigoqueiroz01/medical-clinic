@@ -1,18 +1,16 @@
 server:
-  port: ${SERVER_PORT:8181}
+  port: ${SERVER_PORT:8080}
   servlet:
     context-path: /api/clinic
 
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: true
-
   datasource:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/clinic}
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:postgres}
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
 
   jackson:
     deserialization:

@@ -23,7 +23,7 @@ import java.util.UUID;
 public class FunctionaryResponse {
 
     // Functionary
-    private UUID id;
+    private Long id;
     private String name;
     private String rg;
     private String cpf;

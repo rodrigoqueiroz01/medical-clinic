@@ -21,7 +21,7 @@ import java.util.UUID;
  */
 
 @RestController
-@RequestMapping("/functionary")
+@RequestMapping("/functionary/v1")
 @AllArgsConstructor
 @Validated
 public class FunctionaryController {
@@ -43,14 +43,14 @@ public class FunctionaryController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FunctionaryResponse> findById(@PathVariable String id) {
-        return ResponseEntity.ok().body(FunctionaryMapper.toResponse(functionaryService.findById(UUID.fromString(id))));
+        return ResponseEntity.ok().body(FunctionaryMapper.toResponse(functionaryService.findById(Long.valueOf(id))));
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FunctionaryResponse> update(@Valid @RequestBody FunctionaryRequest functionaryRequest,
                                                       @PathVariable String id) {
         return ResponseEntity.ok().body(FunctionaryMapper.toResponse(functionaryService.update(
-                FunctionaryMapper.toModel(functionaryRequest), UUID.fromString(id))));
+                FunctionaryMapper.toModel(functionaryRequest), Long.valueOf(id))));
     }
 
     @DeleteMapping(value = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)

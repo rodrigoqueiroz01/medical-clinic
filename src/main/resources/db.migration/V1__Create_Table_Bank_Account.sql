@@ -1,5 +1,5 @@
 CREATE TABLE public.bank_account (
-    id                  UUID         NOT NULL,
+    id                  BIGINT         NOT NULL,
     titular_name        VARCHAR(255) NOT NULL,
     payday_one          INTEGER      NOT NULL,
     payday_two          INTEGER      NOT NULL,
@@ -9,7 +9,6 @@ CREATE TABLE public.bank_account (
     pix_key             VARCHAR(255) NOT NULL,
     account_type        VARCHAR(255) NOT NULL,
     transaction_type    VARCHAR(255) NOT NULL,
-
     CONSTRAINT pk_bank_account PRIMARY KEY (id)
 );
 

@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 
 @Repository
-public interface FunctionaryRepository extends JpaRepository<Functionary, UUID>, JpaSpecificationExecutor {
+public interface FunctionaryRepository extends JpaRepository<Functionary, Long>, JpaSpecificationExecutor {
 
     Functionary findByName(String name);
 

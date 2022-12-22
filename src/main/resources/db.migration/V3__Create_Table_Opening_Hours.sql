@@ -1,10 +1,9 @@
 CREATE TABLE public.opening_hours (
-    id           UUID        NOT NULL,
+    id           BIGINT        NOT NULL,
     open_and     VARCHAR(13) NOT NULL,
     closes_in    VARCHAR(13) NOT NULL,
     opening_time VARCHAR(5)  NOT NULL,
     closing_time VARCHAR(5)  NOT NULL,
-
     CONSTRAINT pk_opening_hours PRIMARY KEY (id)
 );
 

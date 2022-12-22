@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 @AllArgsConstructor
 public class FunctionaryService {
 
-    private Logger log = Logger.getLogger(FunctionaryService.class.getName());
+    private static Logger log = Logger.getLogger(FunctionaryService.class.getName());
 
     private final FunctionaryRepository functionaryRepository;
 
@@ -67,14 +67,14 @@ public class FunctionaryService {
         }, pageable);
     }
 
-    public Functionary findById(UUID id) {
+    public Functionary findById(Long id) {
         log.info("Encontrando o funcionário pelo uuid registrado.");
 
         return functionaryRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado!"));
     }
 
-    public Functionary update(Functionary functionary, UUID id) {
+    public Functionary update(Functionary functionary, Long id) {
         log.info("Atualizando um funcionário.");
 
         functionaryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado!"));

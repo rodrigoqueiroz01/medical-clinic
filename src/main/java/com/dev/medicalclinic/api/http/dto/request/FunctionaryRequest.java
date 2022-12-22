@@ -132,7 +132,7 @@ public class FunctionaryRequest {
     private String dismissalDate;
 
     @NotBlank(message = "Este campo é obrigatório.")
-    private UUID bankAccountId;
+    private Long bankAccountId;
 
     // Functionary
     private LocalDate registrationDate;

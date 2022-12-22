@@ -1,6 +1,5 @@
-CREATE TABLE public.functionary
-(
-    id                                    UUID             NOT NULL,
+CREATE TABLE public.functionary (
+    id                                    BIGINT             NOT NULL,
     name                                  VARCHAR(150)     NOT NULL,
     rg                                    VARCHAR(11)      NOT NULL,
     cpf                                   VARCHAR(14)      NOT NULL,
@@ -14,7 +13,7 @@ CREATE TABLE public.functionary
     schooling                             VARCHAR(255)     NOT NULL,
     marital_status                        VARCHAR(255)     NOT NULL,
     email                                 VARCHAR(150)     NOT NULL,
-    bank_account_id                       UUID             NOT NULL,
+    bank_account_id                       BIGINT             NOT NULL,
     registration_date                     date,
     address_cep                           VARCHAR(9)       NOT NULL,
     address_street                        VARCHAR(255)     NOT NULL,

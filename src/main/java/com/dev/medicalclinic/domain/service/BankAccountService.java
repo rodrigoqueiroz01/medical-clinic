@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 @AllArgsConstructor
 public class BankAccountService {
 
-    private Logger log = Logger.getLogger(BankAccountService.class.getName());
+    private static Logger log = Logger.getLogger(BankAccountService.class.getName());
 
     private final BankAccountRepository bankAccountRepository;
 
@@ -37,14 +37,14 @@ public class BankAccountService {
         return bankAccountRepository.findAll();
     }
 
-    public BankAccount findById(UUID id) {
+    public BankAccount findById(Long id) {
         log.info("Encontrando a conta bancária pelo uuid registrado.");
 
         return bankAccountRepository
                 .findById(id).orElseThrow(() -> new EntityNotFoundException("Conta bancária não encontrado com esse ID!"));
     }
 
-    public BankAccount update(BankAccount bankAccount, UUID id) {
+    public BankAccount update(BankAccount bankAccount, Long id) {
         log.info("Atualizando uma conta bancária.");
 
         bankAccountRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Conta bancária não encontrado com esse ID!"));
@@ -59,7 +59,7 @@ public class BankAccountService {
         return bankAccountRepository.save(bankAccount);
     }
 
-    public UUID delete(UUID id) {
+    public Long delete(Long id) {
         log.info("Excluindo uma conta bancária.");
 
         BankAccount bankAccount = bankAccountRepository.findById(id)

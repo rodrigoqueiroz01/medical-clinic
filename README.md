@@ -6,6 +6,7 @@
 ### • PostgreSQL
 ### • HeidiSQL
 ### • JPA
+### • Flyway
 ### • Lombok
 ### • Swagger UI
 ### • IntelliJ IDEA

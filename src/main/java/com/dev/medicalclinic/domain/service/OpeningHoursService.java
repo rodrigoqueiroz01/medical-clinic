@@ -6,14 +6,13 @@ import com.dev.medicalclinic.domain.repository.OpeningHoursRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 @Service
 @AllArgsConstructor
 public class OpeningHoursService {
 
-    private Logger log = Logger.getLogger(OpeningHoursService.class.getName());
+    private static Logger log = Logger.getLogger(OpeningHoursService.class.getName());
 
     private final OpeningHoursRepository openingHoursRepository;
 
@@ -23,7 +22,7 @@ public class OpeningHoursService {
         return openingHoursRepository.save(openingHours);
     }
 
-    public OpeningHours update(OpeningHours openingHours, UUID id) {
+    public OpeningHours update(OpeningHours openingHours, Long id) {
         log.info("Atualizando o horário de funcionamento da clínica.");
 
         openingHoursRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Clínica não encontrada na base de dados."));

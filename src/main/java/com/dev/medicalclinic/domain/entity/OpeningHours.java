@@ -22,8 +22,8 @@ public class OpeningHours implements Serializable {
     public static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
+    private Long id;
 
     @Column(name = "open_and", unique = true, nullable = false, length = 13)
     private String openAnd;
